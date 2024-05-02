@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+    <title>Car checking speed</title>
+</head>
+<body>
+    <div class="container">
+    <div class="BMW">
+        <h2> BMW</h2>
+        <p>Speed:<span id="BMW-speed" style="font-size: 20px;">120 km/h</span></p>
+        <button onclick="car1.accelerate()">Accelerate</button>
+        <button onclick="car1.brake()">Brake</button>
+    </div>
+    <div class="Mercedes">
+        <h2> Mercedes</h2>
+        <p>Speed:<span id="Mercedes-speed"  style="font-size: 20px;">95 km/h</span></p>
+        <button onclick="car2.accelerate()">Accelerate</button>
+        <button onclick="car2.brake()">Brake</button>
+    </div>
+</div>
+
+
+    <script>
+        
+        function Car(make, speed) {
+            this.make = make;
+            this.speed = speed || 0; 
+        
+            this.accelerate = function () {
+                this.speed += 10;
+                document.getElementById(`${this.make}-speed`).innerText = this.speed + " km/h";
+            };
+
+            
+            this.brake = function () {
+                this.speed -= 5;
+                document.getElementById(`${this.make}-speed`).innerText = this.speed + " km/h";
+            };
+        }
+
+        
+        var car1 = new Car("BMW", 120);
+        var car2 = new Car("Mercedes", 95);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
